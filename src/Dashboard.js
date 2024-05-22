@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -18,6 +18,7 @@ import StockCard from './components/StockCard'; // stock card component
 import {useNavigation} from '@react-navigation/native';
 import {useToast} from './utils/ToastContext';
 import Loader from './components/Loader';
+import {useFocusEffect} from '@react-navigation/native';
 
 const Dashboard = () => {
   const username = useSelector(state => state.user.username); // accessing username for display purpose
@@ -33,6 +34,7 @@ const Dashboard = () => {
   const itemsPerPage = 5;
   const totalPages = Math.ceil(stocks.length / itemsPerPage); // compute the total number of pages
 
+  // loading stocks initially
   useEffect(() => {
     const loadStocks = async () => {
       // Display the loader
@@ -45,32 +47,34 @@ const Dashboard = () => {
         //console.error('Error fetching stocks:', error);
         setLoader(false);
       }
-      setLoader(false);
+      //setLoader(false);
     };
     loadStocks();
   }, []);
 
   // Handle hardware back button
-  useEffect(() => {
-    const backAction = () => {
-      Alert.alert('Hold on!', 'Are you sure you want to exit the app?', [
-        {
-          text: 'Cancel',
-          onPress: () => null,
-          style: 'cancel',
-        },
-        {text: 'YES', onPress: () => BackHandler.exitApp()},
-      ]);
-      return true;
-    };
+  useFocusEffect(
+    React.useCallback(() => {
+      const backAction = () => {
+        Alert.alert('Hold on!', 'Are you sure you want to exit the app?', [
+          {
+            text: 'Cancel',
+            onPress: () => null,
+            style: 'cancel',
+          },
+          {text: 'YES', onPress: () => BackHandler.exitApp()},
+        ]);
+        return true;
+      };
 
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        backAction,
+      );
 
-    return () => backHandler.remove();
-  }, []);
+      return () => backHandler.remove();
+    }, []),
+  );
 
   // search input function
   const handleSearch = async text => {

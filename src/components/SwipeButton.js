@@ -35,18 +35,18 @@ const SwipeButton = ({onConfirmed}) => {
         Animated.spring(translateX, {
           toValue: maxTranslateX,
           useNativeDriver: false,
-          tension: 100, // higher tension for quicker response
-          friction: 100, // higher friction for smoother stopping
+          tension: 50, // Adjust tension for smoother movement
+          friction: 8, // Adjust friction for smoother stopping
         }).start();
         if (onConfirmed) {
-          onConfirmed(); // call the callback function when confirmed to perform  other operation
+          onConfirmed(); // Call the callback function when confirmed to perform other operation
         }
       } else {
         Animated.spring(translateX, {
           toValue: 0,
           useNativeDriver: false,
-          tension: 100, // higher tension for quicker response
-          friction: 100, // higher friction for smoother stopping
+          tension: 50, // Adjust tension for smoother movement
+          friction: 8, // Adjust friction for smoother stopping
         }).start(() => {
           setButtonText('Swipe to Buy');
           setIconName('arrow-forward');
