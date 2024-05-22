@@ -16,9 +16,14 @@ This project is a React Native application for managing stock orders. It include
 - [Contributing](#contributing)
 - [License](#license)
 
-
 ## Demo
-   
+
+![Getting Started](./Demo/bottomsheet.jpg)
+![Getting Started](./Demo/dashbaord1.jpg)
+![Getting Started](./Demo/dashboard.jpg)
+![Getting Started](./Demo/openorderReleaseButton.jpg)
+![Getting Started](./Demo/openorders.jpg)
+![Getting Started](./Demo/pushnotificationandConfirmedButton.jpg)
 
 ## Installation
 
