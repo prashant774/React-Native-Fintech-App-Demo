@@ -97,9 +97,31 @@ The project uses react-native-push-notification to handle local push notificatio
 
 ## Screens
 
-LoginScreen
-Dashboard
-OrdersScreen
+# Splash Screen
+
+Standard Splash Screen Behaviour
+
+# Login Screen
+
+Standard Login with email and password, use redux as global state management for login and logout
+
+# Main Screen
+
+Has a scrollable sheet which when scrolled up, will Reveal the search bar. This sheet will have all the Stocks with pagination, show 5 stocks on a single page and rest paginated. Each stock card should display -> Stock Name, Stock Ticker, Stock Full name, Stock Price, Price Change, Stock Image (Not in API figure a way to get it or use static) The API required for this is: Market Trend API-> Use “trend_type” = GAINER
+On Swipe up, the search bar should be visible.
+
+when the user has stopped typing hit the search API and get results. Search API -> Search Endpoint “query” = User input in Search Field
+
+On Long pressing the stock card, show description of the stock
+On Click of the stock card, open the stock detail page
+
+# Stock Details Screen
+
+In Stock Details page, there basic stock details and there is an option to add stock order, on adding it, user is taken to the Open Orders Page where there is a list of all the added stocks (Use Global State Management to manage the stock list)
+
+# Orders Screen
+
+In the Orders Page, There is a list of all the stocks added to the order list, users can remove a stock by clicking the delete button next to the stock. The Swipe to buy button, on swiping order is placed (No API hit needed, just show success state to user on swipe) On swipe complete send user a push notification with text: “Your Purchase order for {Stock Ticker} is completed” If multiple stocks in the same order, create multiple notifications.
 
 ## Contributing
 
