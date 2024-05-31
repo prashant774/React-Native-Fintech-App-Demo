@@ -121,7 +121,7 @@ In Stock Details page, there basic stock details and there is an option to add s
 
 # Orders Screen
 
-In the Orders Page, There is a list of all the stocks added to the order list, users can remove a stock by clicking the delete button next to the stock. The Swipe to buy button, on swiping order is placed (No API hit needed, just show success state to user on swipe) On swipe complete send user a push notification with text: “Your Purchase order for {Stock Ticker} is completed” If multiple stocks in the same order, create multiple notifications.
+In the Orders Page, There is a list of all the stocks added to the order list, users can remove a stock by clicking the delete button next to the stock. The Swipe to buy button, on swiping order is placed. On swipe complete send user a push notification with text: “Your Purchase order for {Stock Name} is completed” If multiple stocks in the same order, create multiple notifications.
 
 ## Contributing
 
