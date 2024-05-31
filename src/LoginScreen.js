@@ -70,9 +70,9 @@ const LoginScreen = () => {
         <Image source={require('../assets/logo.png')} />
       </View>
       <View style={{padding: 10}}>
-        <Text style={styles.welcomeTxt}>Welcome To 1% Club.</Text>
+        <Text style={styles.welcomeTxt}>Welcome To Fintech App.</Text>
         <Text style={styles.tagline}>
-          One Percent Club to achieve Financial Independence.
+          Experience the best stock Application
         </Text>
         <TextField placeholder="Email" value={email} setValue={setEmail} />
         <TextField
